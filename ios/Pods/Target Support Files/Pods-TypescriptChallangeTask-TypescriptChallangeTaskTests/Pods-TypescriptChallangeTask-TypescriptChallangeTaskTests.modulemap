@@ -1,0 +1,6 @@
+module Pods_TypescriptChallangeTask_TypescriptChallangeTaskTests {
+  umbrella header "Pods-TypescriptChallangeTask-TypescriptChallangeTaskTests-umbrella.h"
+
+  export *
+  module * { export * }
+}
