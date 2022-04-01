@@ -1,7 +1,7 @@
 import React, { useEffect } from 'react';
 import {
     ScrollView,
-    View, Text
+    View
 } from 'react-native';
 import { markdownStyle, styles } from "./App.style";
 import Markdown from 'react-native-markdown-package';
@@ -190,7 +190,18 @@ const App = () => {
             contentInsetAdjustmentBehavior="automatic"
             style={styles.scrollView}>
             <View style={styles.container}>
-                <Text>{"Converting data into md format"}</Text>
+                <Markdown
+                    styles={markdownStyle.collectiveMd}
+                    onLink={(url: string) => {
+                        apiCall(url)
+                        const isErrorResult = false;
+                        return new Promise((resolve, reject) => {
+                            isErrorResult ? reject() : resolve(true);
+                        });
+                    }}
+                >
+                    {text}
+                </Markdown>
             </View>
         </ScrollView>
     );
